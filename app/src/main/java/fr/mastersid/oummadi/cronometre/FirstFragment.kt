@@ -41,19 +41,21 @@ class FirstFragment : Fragment() {
         chronometer = binding.chrono// initiate a chronometer
         startChronometer()
 
+        // 1. ajouter ca
         if(savedInstanceState != null){
-
             chronometer.base =savedInstanceState.getLong("ChronoTime");
-
         }
+        // 1. fin
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
+    // 2. ajouter ca
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         super.onSaveInstanceState(savedInstanceState)
         savedInstanceState.putLong("ChronoTime", chronometer.base)
     }
+    // 2. fin
     private fun startChronometer(){
         chronometer.start()
         //viewModel.step.observe(viewLifecycleOwner, {timer ->
